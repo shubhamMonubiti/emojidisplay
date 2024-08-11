@@ -1,0 +1,63 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+<script>
+
+
+var display = document.createElement("p");
+document.body.appendChild(display);
+display.style.fontSize = "300px";
+
+const api = "https://emojihub.yurace.pro/api/all";
+
+
+const getHolidays =  async() => {
+var promise = await fetch(api);
+console.log(promise);
+var data = await promise.json();
+console.log(data);
+
+for(var i=0 ; i<=1790 ; i++){
+var emoji = document.createElement("p");
+document.body.appendChild(emoji);
+emoji.innerHTML = data[i].htmlCode;
+emoji.style.fontSize = "30px";
+emoji.style.display = "inline-block"; 
+
+
+
+}
+
+document.addEventListener('click', function(event) {
+  const clickedElement = event.target;
+   display.innerHTML = clickedElement.innerHTML;
+  
+});
+
+}
+
+getHolidays();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+
+</html>
